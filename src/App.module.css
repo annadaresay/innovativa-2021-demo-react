@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  height: 0;
+}
+
+.content {
+  flex-shrink: 0;
+  width: 960px;
+  min-height: 100%;
+  background: var(--color-white);
+}
+
+.pageContent {
+  padding: 96px 120px;
+}
