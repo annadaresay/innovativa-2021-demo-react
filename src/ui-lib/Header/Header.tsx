@@ -14,7 +14,7 @@ export const Header = (props: HeaderProps) => {
       <h3>{title}</h3>
       <nav className={styles.nav}>
         {routes.map((route) => (
-          <NavItem label={route.label} path={route.path} />
+          <NavItem key={route.path} label={route.label} path={route.path} />
         ))}
       </nav>
     </header>

@@ -10,6 +10,7 @@ import { Example } from "./pages/Example/Example";
 import { Home } from "./pages/Home/Home";
 import { Divider } from "./ui-lib/Divider/Divider";
 import { Header } from "./ui-lib/Header/Header";
+import { DataProvider } from "./utils/DataProvider";
 
 const title = "React Demo 2021";
 
@@ -20,17 +21,19 @@ const routes = [
 
 function App() {
   return (
-    <Router>
-      <div className={styles.container}>
-        <div className={styles.content}>
-          <Header title={title} routes={routes} />
-          <Divider />
-          <div className={styles.pageContent}>
-            <Routes />
+    <DataProvider>
+      <Router>
+        <div className={styles.container}>
+          <div className={styles.content}>
+            <Header title={title} routes={routes} />
+            <Divider />
+            <div className={styles.pageContent}>
+              <Routes />
+            </div>
           </div>
         </div>
-      </div>
-    </Router>
+      </Router>
+    </DataProvider>
   );
 }
 
@@ -45,7 +48,7 @@ const Routes = () => {
           const { path, component: Component } = route;
 
           return (
-            <Route path={path}>
+            <Route key={path} path={path}>
               <Component />
             </Route>
           );

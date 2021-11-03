@@ -1,6 +1,6 @@
 import _ from "lodash";
 import React, { useEffect, useState } from "react";
-import { Emotion } from "../emotions";
+import { Emotion } from "../../../utils/emotions";
 import styles from "./StatusItem.module.css";
 
 const MIN_SCALE = 0.2;

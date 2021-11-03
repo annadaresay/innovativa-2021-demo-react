@@ -1,6 +1,6 @@
 import React from "react";
 import { Spacer } from "../../../ui-lib/Spacer/Spacer";
-import { emotions } from "../emotions";
+import { emotions } from "../../../utils/emotions";
 import styles from "./Status.module.css";
 import { StatusItem } from "./StatusItem";
 
@@ -11,7 +11,7 @@ export const Status = () => {
       <Spacer size={32} />
       <div className={styles.content}>
         {emotions.map((emotion) => (
-          <StatusItem emotion={emotion} />
+          <StatusItem key={emotion.id} emotion={emotion} />
         ))}
       </div>
     </div>

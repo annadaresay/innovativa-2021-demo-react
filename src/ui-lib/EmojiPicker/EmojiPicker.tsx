@@ -18,6 +18,7 @@ export const EmojiPicker = (props: EmojiPickerProps) => {
       <div className={styles.container}>
         {items.map((item) => (
           <EmojiPickerItem
+            key={item.id}
             item={item}
             selected={item.id === value}
             onClick={() => onChange(item.id)}

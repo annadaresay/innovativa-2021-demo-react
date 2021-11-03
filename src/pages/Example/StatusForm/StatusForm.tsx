@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button } from "../../../ui-lib/Button/Button";
 import { EmojiPicker } from "../../../ui-lib/EmojiPicker/EmojiPicker";
 import { Spacer } from "../../../ui-lib/Spacer/Spacer";
-import { emotions } from "../emotions";
+import { emotions } from "../../../utils/emotions";
 import styles from "./StatusForm.module.css";
 
 export const StatusForm = () => {
