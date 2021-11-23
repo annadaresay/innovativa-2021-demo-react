@@ -7,13 +7,14 @@ export const Home = () => {
       <h1>Welcome to this demo app!</h1>
       <Spacer size={32} />
       <p>
-        This React app was created as a demo for the course{" "}
+        This React app is created as a demo app for the course{" "}
         <a href="https://www.umu.se/utbildning/kurser/innovativa-mobila-tjanster-och-system2/">
-          Innovativa mobila tjänster och system
-        </a>{" "}
-        in november 2021. This year's theme is about hybrid teams and how to
-        make remote team members feel included. In the upcoming project, one
-        part of the solution might be a React app, but it's all up to you!
+          Innovativa mobila tjänster och system 2021
+        </a>
+        . This year's theme is about team work and exploring ways to make remote
+        team members feel included in the group. In the upcoming project, one
+        part of the solution might consist of a React app, but it's all up to
+        you!
       </p>
 
       <Spacer size={48} />
@@ -36,14 +37,14 @@ export const Home = () => {
       <h2>The demo app</h2>
       <Spacer size={16} />
       <p>
-        Feel free to clone this repo and use it as a start for your project. The
-        demo app was generated using{" "}
+        Feel free to clone the demo app repo and use it as a start for your
+        project. The demo app was generated using{" "}
         <a href="https://create-react-app.dev/">Create React App</a>. If you are
-        learning React, this is a good place to start to avoid getting stuck
-        configuring build tools.
+        learning React, this is a good place to start when creating your first
+        project.
       </p>
       <Spacer size={16} />
-      <p>The demo project code includes examples of:</p>
+      <p>The demo code includes examples of:</p>
       <Spacer size={8} />
       <ul>
         <li>Basic project structure</li>
@@ -51,7 +52,7 @@ export const Home = () => {
         <li>Components with props</li>
         <li>Components with state</li>
         <li>React hooks</li>
-        <li>Integration with GraphhQL and Apollo</li>
+        <li>Integration with GraphQL and Apollo</li>
       </ul>
     </>
   );
