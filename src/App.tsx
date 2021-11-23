@@ -10,7 +10,7 @@ import { Example } from "./pages/Example/Example";
 import { Home } from "./pages/Home/Home";
 import { Divider } from "./ui-lib/Divider/Divider";
 import { Header } from "./ui-lib/Header/Header";
-import { DataProvider } from "./utils/DataProvider";
+import { DataProvider } from "./shared/DataProvider";
 
 const title = "React Demo 2021";
 

@@ -7,9 +7,18 @@ import {
 } from "@apollo/client";
 import { WebSocketLink } from "@apollo/client/link/ws";
 import { getMainDefinition } from "@apollo/client/utilities";
+import { setContext } from "@apollo/client/link/context";
 
-const API_URL = "https://thecube.daresaycloud.co/graphql"; // TODO: Update
-const WS_URL = "ws://thecube.daresaycloud.co/graphql"; // TODO: Update
+const API_URL = "https://innovativa2021.ey.r.appspot.com/graphql";
+const WS_URL = "wss://innovativa2021.ey.r.appspot.com/graphql";
+const API_AUTH_TOKEN = process.env.REACT_APP_API_AUTH_TOKEN;
+
+const authLink = setContext((_, { headers }) => ({
+  headers: {
+    ...headers,
+    authorization: API_AUTH_TOKEN ? `Bearer ${API_AUTH_TOKEN}` : "",
+  },
+}));
 
 const wsLink = new WebSocketLink({
   uri: WS_URL,
@@ -35,7 +44,7 @@ const splitLink = split(
 );
 
 const client = new ApolloClient({
-  link: splitLink,
+  link: authLink.concat(splitLink),
   cache: new InMemoryCache(),
 });
 

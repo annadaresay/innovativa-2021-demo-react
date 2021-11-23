@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { Button } from "../../../ui-lib/Button/Button";
 import { EmojiPicker } from "../../../ui-lib/EmojiPicker/EmojiPicker";
 import { Spacer } from "../../../ui-lib/Spacer/Spacer";
-import { emotions } from "../../../utils/emotions";
+import { useAddTeamEvent } from "../../../shared/api";
+import { emotions } from "../../../shared/types";
 import styles from "./StatusForm.module.css";
 
 export const StatusForm = () => {
+  const addTeamEvent = useAddTeamEvent();
   const [selected, setSelected] = useState(emotions[0].id);
 
   return (
@@ -16,8 +18,11 @@ export const StatusForm = () => {
       <Spacer size={32} />
       <Button
         label="Send!"
-        onClick={() => {
-          alert(`TODO: Call API with ${selected}`);
+        onClick={async () => {
+          const result = await addTeamEvent(selected);
+          const timestamp = result?.data?.addTeamEvent.timestamp;
+
+          console.log(`event ${selected} added at ${timestamp}`);
         }}
       />
     </div>

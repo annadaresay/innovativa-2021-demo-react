@@ -1,6 +1,6 @@
 import React from "react";
 import { Spacer } from "../../../ui-lib/Spacer/Spacer";
-import { emotions } from "../../../utils/emotions";
+import { emotions } from "../../../shared/types";
 import styles from "./Status.module.css";
 import { StatusItem } from "./StatusItem";
 

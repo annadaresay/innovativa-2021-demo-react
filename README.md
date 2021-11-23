@@ -2,6 +2,14 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Setup
+
+Create a file named .env.local in project root (this file is excluded from git). Add the secret API token to it:
+
+```
+REACT_APP_API_AUTH_TOKEN=secret_token
+```
+
 ## To run the app locally
 
 In the project directory, run:
