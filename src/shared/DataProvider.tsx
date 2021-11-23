@@ -9,8 +9,8 @@ import { WebSocketLink } from "@apollo/client/link/ws";
 import { getMainDefinition } from "@apollo/client/utilities";
 import { setContext } from "@apollo/client/link/context";
 
-const API_URL = "https://innovativa2021.ey.r.appspot.com/graphql";
-const WS_URL = "wss://innovativa2021.ey.r.appspot.com/graphql";
+const API_URL = "https://innovativa2021server.azurewebsites.net/graphql";
+const WS_URL = "wss://innovativa2021server.azurewebsites.net/graphql";
 const API_AUTH_TOKEN = process.env.REACT_APP_API_AUTH_TOKEN;
 
 const authLink = setContext((_, { headers }) => ({
