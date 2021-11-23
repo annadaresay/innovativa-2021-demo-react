@@ -15,7 +15,7 @@ const useEmotionScale = (emotionId: string) => {
     2
   );
 
-  // Update scale when emotion mean value is changed
+  // Update scale when emotion event value is changed
   useEffect(() => {
     const newScale = eventValue / (1 + eventValue); // [0, inf] -> [0, 1]
     setScale(_.clamp(newScale, MIN_SCALE, MAX_SCALE));
