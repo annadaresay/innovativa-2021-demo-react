@@ -36,14 +36,14 @@ export const Home = () => {
       <h2>The demo app</h2>
       <Spacer size={16} />
       <p>
-        The demo app was generated using{" "}
+        Feel free to clone this repo and use it as a start for your project. The
+        demo app was generated using{" "}
         <a href="https://create-react-app.dev/">Create React App</a>. If you are
         learning React, this is a good place to start to avoid getting stuck
-        configuring build tools. Feel free to clone this repo and use it as a
-        start for your project.
+        configuring build tools.
       </p>
       <Spacer size={16} />
-      <p>The code includes examples of:</p>
+      <p>The demo project code includes examples of:</p>
       <Spacer size={8} />
       <ul>
         <li>Basic project structure</li>
