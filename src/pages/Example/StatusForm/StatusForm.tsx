@@ -22,7 +22,7 @@ export const StatusForm = () => {
           const result = await addTeamEvent(selected);
           const timestamp = result?.data?.addTeamEvent.timestamp;
 
-          console.log(`event ${selected} added at ${timestamp}`);
+          console.log(`event ${selected} triggered at ${timestamp}`);
         }}
       />
     </div>

@@ -1,28 +1,30 @@
-import { gql, useMutation, useQuery } from "@apollo/client";
+import { gql, useMutation, useQuery, useSubscription } from "@apollo/client";
 import { TeamEventMean, TeamState } from "./types";
 
 const TEAM_ID = "demoteam"; // Change this to your own team id
 
-// Queries
-const teamStateQuery = gql`
-  query TeamState($team: String!) {
-    teamState(team: $team) {
-      state {
-        key
-        value
-      }
+// Query example
+const teamEventMeanQuery = gql`
+  query TeamEventMean($team: String!) {
+    teamEventMean(team: $team) {
+      type
+      value
     }
   }
 `;
-export const useTeamState = () => {
-  const { data } = useQuery<{ teamState: TeamState }>(teamStateQuery, {
-    variables: { team: TEAM_ID },
-  });
+export const useTeamEventMean = () => {
+  const { data } = useQuery<{ teamEventMean: TeamEventMean[] }>(
+    teamEventMeanQuery,
+    {
+      variables: { team: TEAM_ID },
+      pollInterval: 1000,
+    }
+  );
 
-  return data?.teamState;
+  return data?.teamEventMean;
 };
 
-// Mutations
+// Mutation example
 const addTeamEventMutation = gql`
   mutation AddTeamEvent($input: TeamEventInput) {
     addTeamEvent(input: $input) {
@@ -45,23 +47,38 @@ export const useAddTeamEvent = () => {
     });
 };
 
-// TODO: Change this to a subscription
-const teamEventMeanQuery = gql`
-  query TeamEventMean($team: String!) {
-    teamEventMean(team: $team) {
-      type
-      value
+// Query + subscription example
+const teamStateQuery = gql`
+  query TeamState($team: String!) {
+    teamState(team: $team) {
+      state {
+        value
+        key
+      }
     }
   }
 `;
-export const useTeamEventMean = () => {
-  const { data } = useQuery<{ teamEventMean: TeamEventMean[] }>(
-    teamEventMeanQuery,
+const teamStateSubscription = gql`
+  subscription TeamStateChange($team: String!) {
+    teamStateChange(team: $team) {
+      state {
+        value
+        key
+      }
+    }
+  }
+`;
+export const useTeamState = () => {
+  const { data: initial } = useQuery<{ teamState: TeamState }>(teamStateQuery, {
+    variables: { team: TEAM_ID },
+  });
+
+  const { data: updated } = useSubscription<{ teamStateChange: TeamState }>(
+    teamStateSubscription,
     {
       variables: { team: TEAM_ID },
-      pollInterval: 1000, // Workaround until we can subscribe
     }
   );
 
-  return data?.teamEventMean;
+  return updated?.teamStateChange ?? initial?.teamState;
 };
